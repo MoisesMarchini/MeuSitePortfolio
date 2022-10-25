@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moisés Marchini</title>
+
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+
+<body>
+    <!--------------------------  NAV SECTION -------------------------->
+
+    <nav>
+        <div class="container nav-container">
+
+            <h3 class="nav-logo">
+                Moisés Marchini
+            </h3>
+
+            <ul class="nav-menu">
+                <li class="nav-menu-item"><a href="#header-section"><i class="uil uil-estate"></i>Início</a></li>
+                <li class="nav-menu-item"><a href="#about-section"><i class="uil uil-user"></i>Sobre</a></li>
+                <li class="nav-menu-item"><a href="#portfolio-section"><i class="uil uil-scenery"></i>Portfólio</a></li>
+                <li class="nav-menu-item"><a href="#contact-section"><i class="uil uil-message"></i>Contato</a></li>
+
+
+                <input type="checkbox" id="check">
+                <label for="check" class="nav-toggle">
+                    <i class="uil uil-bars" id="nav-toggle-show"></i>
+                    <i class="uil uil-angle-down" id="nav-toggle-hide"></i>
+                </label>
+            </ul>
+
+
+        </div>
+    </nav>
+
+    <main>
+
+        <!--------------------------  HEADER SECTION -------------------------->
+
+        <header class="section container header-section flex" id="header-section">
+            <div class="section-text grow">
+                <h2 class="section-title">Moisés Marchini</h2>
+                <p class="section-subtitle">Desenvolvedor full stack</p>
+                <a href="#" class="btn btn-primary rounded margin-Y w-mContent">
+                    <i class="uil uil-import btn-icon"></i> Currículo
+                </a>
+            </div>
+            <div class="section-image-area flex">
+                <img src="./imgs/header-img.svg" alt="">
+            </div>
+            <div class="header-socials flex">
+                <a href="https://www.linkedin.com/in/moisesmarchinipereira/" target="_blank"
+                    class="btn btn-social rounded"><i class="uil uil-linkedin-alt btn-icon"></i></a>
+                <a href="https://github.com/MoisesMarchini/" target="_blank" class="btn btn-social rounded"><i
+                        class="uil uil-github-alt btn-icon"></i></a>
+            </div>
+        </header>
+
+        <!--------------------------  ABOUT SECTION -------------------------->
+
+        <section class="section container about-section flex" id="about-section">
+
+            <div class="section-text  nogrow margin-bot about-section-title">
+                <h2 class="section-title">Sobre mim</h2>
+            </div>
+
+            <div class="section-image-area flex">
+                <img src="./imgs/about-img.svg" alt="">
+            </div>
+            <div class="section-text about-section-text text-left">
+                <p class="section-subtitle margin-bot">Possuo experiência com montagem e manutenção de
+                    microcomputadores, atendimento ao cliente, gestão de caixa,
+                    suporte técnico, desenvolvimento de aplicações desktop com .NET Framework/.NET Core, SQL e
+                    desenvolvimento de jogos com Unity Engine. Já trabalhei em diversas áreas diferentes buscando sempre
+                    aprender coisas novas mas sempre me senti muito atraído pela área de TI.
+                </p>
+                <p class="section-subtitle margin-bot">Desde a minha adolescência eu busquei desenvolver jogos
+                    utilizando ferramentas como RPG Maker, Construct2 e Unity como um hobby e com o início da quarentena
+                    me dediquei a estudar mais a fundo essa área focando na linguagem C#, que é a linguagem usada pelo
+                    Unity. Sou uma pessoa muito crítica com o que eu crio, gosto de projetos organizados, de ver meus
+                    sistemas funcionando como imaginei e busco sempre encontrar uma solução mais simples para os
+                    problemas que encontro.
+                </p>
+                <p class="section-subtitle margin-bot">Minha curiosidade me fez criar o costume de estudar por
+                    conta própria, buscando as informações que procuro em fóruns e youtube. Tenho disciplina e
+                    disposição para aprender.
+                </p>
+                <p class="section-subtitle">
+                    Gosto de ver animes e séries, sou viciado em café e apaixonado por jogos de estratégia como xadrez e
+                    jogos com cartas. Amo criar coisas personalizadas para mim buscando colocar minha marca no que eu
+                    faço.
+                </p>
+            </div>
+        </section>
+
+
+        <!--------------------------  PORTFOLIO SECTION -------------------------->
+
+        <section class="section container portfolio-section flex" id="portfolio-section">
+
+            <div class="section-text  nogrow margin-bot">
+                <h2 class="section-title">Portfólio</h2>
+            </div>
+
+
+
+            <!--------------------------  TABS  -------------------------->
+
+            <div class="section-tabs margin-Y grid">
+                <button class="tab" id="tab-frontend">FrontEnd</button>
+                <button class="tab" id="tab-fullstack">FullStack</button>
+                <button class="tab" id="tab-gamedev">GameDev</button>
+            </div>
+
+
+
+            <!--------------------------  SLIDER  -------------------------->
+
+            <div class="slider-wrapper flex grow">
+
+                <div class="slider-control-wrapper margin-top flex disabled">
+                    <button class="slider-control left"><i class="uil uil-arrow-left"></i></button>
+                    <div class="slider-control-size grow"></div>
+                    <button class="slider-control right"><i class="uil uil-arrow-right"></i></button>
+                </div>
+
+                <!--------------------------  SLIDER 1  -------------------------->
+                <div class="slider flex margin-bot disabled" id="slide-frontend">
+
+                    <div class="slider-item placeholder flex column text-center">
+                        <p class="section-title slider-title">Oops</p>
+                        <img src="./imgs/portfolio-placeholder-monochromatic.svg">
+                        <p class="section-subtitle slider-subtitle">Parece que eu ainda não tenho nenhum projeto postado
+                            nessa
+                            categoria.</p>
+                    </div>
+
+                </div>
+
+                <!--------------------------  SLIDER 2  -------------------------->
+                <div class="slider flex margin-bot disabled" id="slide-fullstack">
+
+                    <div class="slider-item placeholder flex column text-center">
+                        <p class="section-title slider-title">Oops</p>
+                        <img src="./imgs/portfolio-placeholder-monochromatic.svg">
+                        <p class="section-subtitle slider-subtitle">Parece que eu ainda não tenho nenhum projeto postado
+                            nessa
+                            categoria.</p>
+                    </div>
+
+                </div>
+
+                <!--------------------------  SLIDER 3  -------------------------->
+                <div class="slider flex margin-bot disabled" id="slide-gamedev">
+
+                    <div class="slider-item placeholder flex column text-center">
+                        <p class="section-title slider-title">Oops</p>
+                        <img src="./imgs/portfolio-placeholder-monochromatic.svg">
+                        <p class="section-subtitle slider-subtitle">Parece que eu ainda não tenho nenhum projeto postado
+                            nessa
+                            categoria.</p>
+                    </div>
+
+                </div>
+
+
+
+                <!--------------------------  SLIDER-ITEM TEMPLATE  -------------------------->
+
+                <div class="slider-item flex column text-left fulldisabled" id="slider-item-template">
+                    <img src="./imgs/covers/login_helper.png" class="slider-cover">
+                    <div class="slider-links margin-top grid">
+                        <a href="#" target="_blank" class="btn rounded btn-primary slider-link-demo">
+                            <i class="uil uil-external-link-alt"></i>Demo
+                        </a>
+                        <a href="#" target="_blank" class="btn rounded btn-secondary slider-link-github">
+                            <i class="uil uil-github-alt"></i>Github
+                        </a>
+                    </div>
+                    <div class="slider-text grow flex column">
+                        <p class="section-title slider-title">Título do projeto</p>
+                        <p class="section-subtitle slider-subtitle grow">Descrição do projeto.</p>
+                        <ul class="slider-tags flex">
+                            <li class="tag">html</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+
+        <!--------------------------  CONTACT SECTION -------------------------->
+
+        <section class="section container contact-section flex" id="contact-section">
+
+            <div class="section-text  nogrow margin-bot">
+                <h2 class="section-title">Contato</h2>
+            </div>
+
+            <div class="section-image-area flex">
+                <img src="./imgs/contact-img.svg" alt="">
+            </div>
+
+
+            <div class="contact-socials flex column">
+                <a href="https://www.linkedin.com/in/moisesmarchinipereira/" target="_blank"
+                    class="btn btn-social rounded"><i class="uil uil-linkedin-alt btn-icon"></i>Linkedin</a>
+                <a href="https://github.com/MoisesMarchini/" target="_blank" class="btn btn-social rounded"><i
+                        class="uil uil-github-alt btn-icon"></i>Github</a>
+                <a href="#" class="btn btn-social rounded"><i class="uil uil-envelope-alt btn-icon"></i>Gmail</a>
+            </div>
+        </section>
+
+
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
