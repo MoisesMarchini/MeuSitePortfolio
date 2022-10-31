@@ -48,7 +48,7 @@
             <div class="section-text grow">
                 <h2 class="section-title">Moisés Marchini</h2>
                 <p class="section-subtitle">Desenvolvedor full stack</p>
-                <a href="#" class="btn btn-primary rounded margin-Y w-mContent">
+                <a href="./pdf/Moisés Marchini - CV.pdf" download="Moisés Marchini" class="btn btn-primary rounded margin-Y w-mContent">
                     <i class="uil uil-import btn-icon"></i> Currículo
                 </a>
             </div>
@@ -126,12 +126,12 @@
             <div class="slider-wrapper flex grow">
 
                 <div class="slider-control-wrapper margin-top flex disabled">
-                    <button class="slider-control left"><i class="uil uil-arrow-left"></i></button>
+                    <button class="slider-control left" onclick="IncreaseCurrentSlideItem(-1)"><i class="uil uil-arrow-left"></i></button>
                     <div class="slider-control-size grow"></div>
-                    <button class="slider-control right"><i class="uil uil-arrow-right"></i></button>
+                    <button class="slider-control right" onclick="IncreaseCurrentSlideItem(1)"><i class="uil uil-arrow-right"></i></button>
                 </div>
 
-                <!--------------------------  SLIDER 1  -------------------------->
+                <!--------------------------  SLIDER FRONTEND  -------------------------->
                 <div class="slider flex margin-bot disabled" id="slide-frontend">
 
                     <div class="slider-item placeholder flex column text-center">
@@ -144,7 +144,7 @@
 
                 </div>
 
-                <!--------------------------  SLIDER 2  -------------------------->
+                <!--------------------------  SLIDER FULLSTACK  -------------------------->
                 <div class="slider flex margin-bot disabled" id="slide-fullstack">
 
                     <div class="slider-item placeholder flex column text-center">
@@ -157,7 +157,7 @@
 
                 </div>
 
-                <!--------------------------  SLIDER 3  -------------------------->
+                <!--------------------------  SLIDER GAMEDEV  -------------------------->
                 <div class="slider flex margin-bot disabled" id="slide-gamedev">
 
                     <div class="slider-item placeholder flex column text-center">
@@ -170,6 +170,15 @@
 
                 </div>
 
+                <!--------------------------  SLIDER EMPTY  -------------------------->
+                <div class="slider flex margin-bot" id="slide-empty-tab">
+
+                    <div class="slider-item placeholder flex column text-center">
+                        <!-- <img src="./imgs/portfolio-placeholder-monochromatic.svg"> -->
+                        <p class="section-subtitle slider-title">Escolha uma categoria acima para visualizar.</p>
+                    </div>
+
+                </div>
 
 
                 <!--------------------------  SLIDER-ITEM TEMPLATE  -------------------------->
@@ -180,18 +189,20 @@
                         <a href="#" target="_blank" class="btn rounded btn-primary slider-link-demo">
                             <i class="uil uil-external-link-alt"></i>Demo
                         </a>
-                        <a href="#" target="_blank" class="btn rounded btn-secondary slider-link-github">
+                        <a href="#" target="_blank" class="btn btn-social rounded slider-link-github">
                             <i class="uil uil-github-alt"></i>Github
                         </a>
                     </div>
                     <div class="slider-text grow flex column">
                         <p class="section-title slider-title">Título do projeto</p>
-                        <p class="section-subtitle slider-subtitle grow">Descrição do projeto.</p>
+                        <p class="section-subtitle slider-subtitle margin-bot grow">Descrição do projeto.</p>
                         <ul class="slider-tags flex">
                             <li class="tag">html</li>
                         </ul>
                     </div>
                 </div>
+
+                
 
 
             </div>

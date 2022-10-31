@@ -17,7 +17,7 @@ navCheckbox.addEventListener('change', () => {
 const portfolioTabs = document.querySelectorAll('.portfolio-section .section-tabs .tab');
 const portfolioSlides = document.querySelectorAll('.portfolio-section .slider-wrapper .slider');
 const sliderControlWrapper = document.querySelector('.slider-control-wrapper');
-
+const sliderControls = document.querySelector('.slider-control-wrapper .slider-control');
 const sliderItemTemplate = document.getElementById('slider-item-template');
 
 const frontEndProjects = [
@@ -29,31 +29,61 @@ const frontEndProjects = [
         'html|css|javascript'),
     NewEmptyProject('../imgs/covers/star_devs.png',
         'Star Devs',
-        'Projeto acadêmico consumindo uma api de Star Wars.',
+        "Projeto do curso <a class='course-link' target='_blank' href='https://www.udemy.com/course/html5-css3-e-javascript-na-pratica-3-projetos/'>HTML5, CSS3 E Javascript na prática</a> consumindo uma api de Star Wars.",
         '../potfolio/Star-Devs/index.html',
         'https://github.com/MoisesMarchini/Star-Devs',
         'html|css|javascript'),
     NewEmptyProject('../imgs/covers/login_helper.png',
         'Login Helper',
-        'Projeto acadêmico reproduzindo uma tela de login simples.',
+        "Projeto do curso <a class='course-link' target='_blank' href='https://www.udemy.com/course/html5-css3-e-javascript-na-pratica-3-projetos/'>HTML5, CSS3 E Javascript na prática</a> reproduzindo uma tela de login simples.",
         '../potfolio/Login-Helper/index.html',
         'https://github.com/MoisesMarchini/Projeto---Login-Helper',
         'html|css|javascript'),
     NewEmptyProject('../imgs/covers/guess_number.png',
         'GuessNumber',
-        'Projeto acadêmico de um jogo onde você precisa acertar o número escolhido pela máquina.',
+        "Projeto do curso <a class='course-link' target='_blank' href='https://www.udemy.com/course/html5-css3-e-javascript-na-pratica-3-projetos/'>HTML5, CSS3 E Javascript na prática</a> sobre um jogo onde você precisa acertar o número escolhido pela máquina.",
         '../potfolio/Guess-Number/index.html',
         'https://github.com/MoisesMarchini/Guess-Number',
         'html|css|javascript')
 ];
 const fullStackProjects = [
+    NewEmptyProject('../imgs/covers/MyTodoApp.png',
+        'Lista de tarefas - CRUD Simples',
+        'Projeto acadêmico utilizando Angular, Bootstrap, ASP.NET e Sqlite.',
+        null,
+        'https://github.com/MoisesMarchini/TodoApp',
+        'Angular|bootstrap|ASP.NET|Sqlite'),
+    NewEmptyProject('https://via.placeholder.com/640x320?text=No+Image',
+        'ProEventos - Curso Udemy',
+        "Projeto do curso <a class='course-link' target='_blank' href='https://www.udemy.com/course/angular-dotnetcore-efcore/'>Full-Stack com .NET Web API e Angular + EF Core</a>.",
+        null,
+        'https://github.com/MoisesMarchini/Curso-Udemy-.NET-Web-API-e-Angular---ProEventos',
+        'Angular|bootstrap|ASP.NET|Sqlite')
 ];
 const gameDevProjects = [
+    NewEmptyProject('https://img.itch.zone/aW1hZ2UvMzIzNjc5LzE1OTg5NzYucG5n/original/79yHl7.png',
+        'Super Niceboy',
+        'Um jogo troll que criei para conhecer a ferramenta.',
+        'https://moisesmp.itch.io/superniceboy',
+        null,
+        'Construct 2'),
+    NewEmptyProject('https://img.itch.zone/aW1hZ2UvMTcxNTMwMS8xMDEwNDgwNS5wbmc=/original/4Ki7o9.png',
+        'Tiny Despair',
+        'Jogo roguelike com masmorras geradas randomicamente.',
+        'https://moisesmp.itch.io/tiny-despair',
+        null,
+        'Unity Engine|C#'),
+    NewEmptyProject('https://img.itch.zone/aW1hZ2UvMTYzNzMzNi85ODA4MDI2LnBuZw==/original/kQK0SL.png',
+        'Destiny Dungeon',
+        'Jogo roguelike de cartas inspirado por Slay The Spire.',
+        'https://moisesmp.itch.io/destiny-dungeon',
+        null,
+        'Unity Engine|C#')
 ];
 
 
 
-let currentTab;
+let currentTabName;
 
 portfolioTabs.forEach(tab => {
     tab.addEventListener('click', () => {
@@ -62,12 +92,11 @@ portfolioTabs.forEach(tab => {
             tab.classList.remove('active');
         })
 
-        currentTab = tab.id.split('-')[1];
+        currentTabName = tab.id.split('-')[1];
         SetCurrentSlide();
         tab.classList.add('active');
     })
 });
-
 portfolioSlides.forEach(slide => {
 
     if (slide.id.split('-')[1] == 'frontend') {
@@ -92,7 +121,7 @@ function SetCurrentSlide() {
     portfolioSlides.forEach(slide => {
         slide.classList.add('disabled');
 
-        if (slide.id.split('-')[1] == currentTab) {
+        if (slide.id.split('-')[1] == currentTabName) {
             slide.classList.remove('disabled');
             const slidesDisabled = slide.querySelectorAll('.placeholder').length;
 
@@ -104,6 +133,26 @@ function SetCurrentSlide() {
                 slide.querySelector('.placeholder').classList.remove('fulldisabled')
                 sliderControlWrapper.classList.add('disabled')
             }
+        }
+
+    });
+}
+function IncreaseCurrentSlideItem(value) {
+    value = Math.min(1, Math.max(-1, value));
+    portfolioSlides.forEach(slide => {
+
+        if (slide.id.split('-')[1] == currentTabName) {
+            let scrollValue = slide.clientWidth * value;
+            let previewScrollAmount = slide.scrollLeft + scrollValue;
+
+            if (previewScrollAmount < 0) {
+                scrollValue = slide.clientWidth * (slide.childElementCount - 1);
+            }
+            if (previewScrollAmount >= slide.clientWidth * (slide.childElementCount - 1)) {
+                scrollValue = (slide.clientWidth * (slide.childElementCount - 1)) * -1;
+            }
+
+            slide.scrollLeft += scrollValue;
         }
 
     });
@@ -124,6 +173,11 @@ function SetNewItemToSlide(slide, project) {
     itemTitle.innerHTML = project.title;
     itemSubtitle.innerHTML = project.subtitle;
     itemDemoLink.href = project.demoLink;
+
+    if (project.demoLink == null) {
+        itemDemoLink.classList.add('fulldisabled');
+    }
+
     itemGithubLink.href = project.githubLink;
 
 
