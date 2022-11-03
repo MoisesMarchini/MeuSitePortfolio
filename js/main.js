@@ -142,17 +142,29 @@ function IncreaseCurrentSlideItem(value) {
     portfolioSlides.forEach(slide => {
 
         if (slide.id.split('-')[1] == currentTabName) {
-            let scrollValue = slide.clientWidth * value;
-            let previewScrollAmount = slide.scrollLeft + scrollValue;
 
-            if (previewScrollAmount < 0) {
-                scrollValue = slide.clientWidth * (slide.childElementCount - 1);
-            }
-            if (previewScrollAmount >= slide.clientWidth * (slide.childElementCount - 1)) {
-                scrollValue = (slide.clientWidth * (slide.childElementCount - 1)) * -1;
-            }
+            const scrRight = () => {
+                let scrollPreview = slide.scrollLeft + slide.lastChild.offsetWidth*0.66;
+                slide.scrollLeft = scrollPreview;
+                
+                if (scrollPreview >= slide.lastChild.offsetWidth* (slide.childElementCount-2))
+                    slide.scrollLeft = 0;
+            };
+      
+            const scrLeft = () => {
+                slide.scrollLeft = slide.scrollLeft - slide.lastChild.offsetWidth * 0.66;
+                if (slide.scrollLeft <= 0)
+                    slide.scrollLeft = slide.lastChild.offsetWidth* slide.childElementCount;
+            };
+            
 
-            slide.scrollLeft += scrollValue;
+            if (value > 0)
+                scrRight();
+            if (value < 0)
+                scrLeft();
+            
+        
+            console.log(slide.scrollLeft, slide.lastChild.offsetWidth* (slide.childElementCount-2), slide.lastChild.offsetWidth);
         }
 
     });
@@ -179,6 +191,11 @@ function SetNewItemToSlide(slide, project) {
     }
 
     itemGithubLink.href = project.githubLink;
+
+    if (project.githubLink == null) {
+        itemGithubLink.classList.add('fulldisabled');
+    }
+
 
 
     let projectTags = project.tagsList.split('|');
